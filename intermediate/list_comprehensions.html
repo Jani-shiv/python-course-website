@@ -2,15 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Python Variables</title>
+  <title>Python Lists</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Custom styles for this page -->
   <style>
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: 'Lucida Console', Monaco, monospace;
       margin: 0;
       padding: 0;
-      background-color: #ffffff;
+      background-color: #e8f5e9;
       color: #333;
     }
     .container {
@@ -22,51 +22,50 @@
       font-size: 2em;
       margin-bottom: 10px;
       text-align: center;
-      animation: bounce 1.5s;
+      animation: scaleUp 1s;
     }
-    /* Bounce animation for heading */
-    @keyframes bounce {
-      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-      40% { transform: translateY(-30px); }
-      60% { transform: translateY(-15px); }
+    /* Scale up animation for heading */
+    @keyframes scaleUp {
+      from { transform: scale(0); }
+      to { transform: scale(1); }
     }
     p {
       line-height: 1.6;
       margin-bottom: 20px;
-      animation: slideIn 1s ease-out;
+      animation: slideUp 1s ease-out;
     }
-    /* Slide-in animation for paragraphs */
-    @keyframes slideIn {
-      from { opacity: 0; transform: translateX(-30px); }
-      to { opacity: 1; transform: translateX(0); }
+    /* Slide-up animation for paragraphs */
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
-    /* Style for code editor */
+    /* Code editor styling */
     #codeInput {
       width: 100%;
-      height: 100px;
-      font-family: 'Courier New', monospace;
+      height: 120px;
+      font-family: monospace;
       font-size: 14px;
       padding: 10px;
-      border: 2px solid #1e90ff;
-      box-sizing: border-box;
+      border: 2px solid #4caf50;
       margin-bottom: 10px;
+      box-sizing: border-box;
     }
     #runButton {
       padding: 10px 20px;
       font-size: 14px;
-      background-color: #1e90ff;
+      background-color: #4caf50;
       color: white;
       border: none;
       cursor: pointer;
       margin-bottom: 10px;
     }
     #runButton:hover {
-      background-color: #187bcd;
+      background-color: #45a049;
     }
     #output {
-      background-color: #e8f4fd;
+      background-color: #ffffff;
       padding: 10px;
-      border: 1px solid #1e90ff;
+      border: 1px solid #4caf50;
       min-height: 50px;
       white-space: pre-wrap;
     }
@@ -77,22 +76,23 @@
 </head>
 <body>
   <div class="container">
-    <h1>Python Variables</h1>
-    <!-- Explanation of variables -->
-    <p>Variables are used to store data in Python. You create a variable by assigning it a value using the <code>=</code> operator. 
-    For example, <code>x = 10</code> assigns the value 10 to the variable <code>x</code>. 
-    Python is dynamically typed, so you don't need to declare variable types explicitly.</p>
+    <h1>Python Lists</h1>
+    <!-- Explanation of lists -->
+    <p>Lists are ordered collections that can store multiple items. You define a list using square brackets <code>[]</code>. 
+    Lists are mutable, so you can add or remove items. You can access elements by index (starting at 0). 
+    For example, <code>mylist[1]</code> accesses the second element of <code>mylist</code>.</p>
     <!-- Interactive code editor -->
     <textarea id="codeInput">
-# Assign values to variables
-x = 10
-y = 5
-print("Sum:", x + y)
+# Define a list and use it
+fruits = ["apple", "banana", "cherry"]
+print(fruits[1])  # prints "banana"
+fruits.append("orange")
+print(fruits)
     </textarea><br>
     <button id="runButton" onclick="runCode()">Run Code</button>
     <pre id="output"></pre>
   </div>
-  <!-- JavaScript for running Python code -->
+  <!-- JavaScript for Python execution -->
   <script>
     function outf(text) {
       var out = document.getElementById("output");
