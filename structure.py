@@ -12,10 +12,20 @@ folders = [
     "assets/js",
     "assets/images",
     "assets/notes",
+    "webdev",
+    "datascience",
+    "automation",
+    "exercises",
+    "quizzes",
+    "templates",
 ]
 
 # Define files to create with their relative paths
 files = [
+    # Main navigation and templates
+    "index.html",
+    "templates/navbar.html",
+
     # Beginner files
     "beginner/comments.html",
     "beginner/variables.html",
@@ -53,6 +63,19 @@ files = [
     "advanced/metaprogramming.html",
     "advanced/testing.html",
     "advanced/performance.html",
+
+    # Web Development
+    "webdev/flask_intro.html",
+
+    # Data Science
+    "datascience/numpy_basics.html",
+
+    # Automation
+    "automation/os_automation.html",
+
+    # Exercises and Quizzes
+    "exercises/beginner_ex_01.html",
+    "quizzes/beginner_quiz_01.html",
 
     # Projects files
     "projects/calculator/index.html",

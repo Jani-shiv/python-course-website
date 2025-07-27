@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Getting Started with Python - Learn Python</title>
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Code&display=swap">
+  <script src="/assets/js/app.js" defer></script>
+</head>
+<body>
+  <div class="nav-wrapper">
+    <nav>
+      <a href="/" class="logo">Learn Python</a>
+      <div class="nav-links">
+        <a href="/beginner/getting-started.html" class="active">Beginner</a>
+        <a href="/intermediate/overview.html">Intermediate</a>
+        <a href="/advanced/overview.html">Advanced</a>
+        <a href="/projects/index.html">Projects</a>
+        <a href="/playground.html">Code Playground</a>
+      </div>
+    </nav>
+  </div>
+
+  <main class="container">
+    <div class="learning-path">
+      <h1 class="section-title">Beginner's Python Journey</h1>
+      
+      <section class="introduction fade-in">
+        <h2>Welcome to Python!</h2>
+        <p>Start your programming journey with Python, one of the most beginner-friendly programming languages.</p>
+      </section>
+
+      <section class="course-modules">
+        <h2>Course Modules</h2>
+        <div class="cards-grid">
+          <div class="card">
+            <h3>1. Python Basics</h3>
+            <ul class="feature-list">
+              <li><a href="variables.html">Variables and Data Types</a></li>
+              <li><a href="operators.html">Operators and Expressions</a></li>
+              <li><a href="input_output.html">Input and Output</a></li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>2. Control Flow</h3>
+            <ul class="feature-list">
+              <li><a href="conditionals.html">Conditional Statements</a></li>
+              <li><a href="loops.html">Loops</a></li>
+              <li><a href="functions.html">Functions</a></li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>3. Data Structures</h3>
+            <ul class="feature-list">
+              <li><a href="lists.html">Lists</a></li>
+              <li><a href="dictionaries.html">Dictionaries</a></li>
+              <li><a href="tuples.html">Tuples</a></li>
+              <li><a href="sets.html">Sets</a></li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>4. Program Structure</h3>
+            <ul class="feature-list">
+              <li><a href="modules.html">Modules</a></li>
+              <li><a href="packages.html">Packages</a></li>
+              <li><a href="exceptions.html">Error Handling</a></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="projects-preview">
+        <h2>Beginner Projects</h2>
+        <div class="cards-grid">
+          <div class="card">
+            <h3>Number Guessing Game</h3>
+            <p>Create a simple game where users guess a random number.</p>
+            <a href="/projects/guess_number/index.html" class="btn">Start Project</a>
+          </div>
+
+          <div class="card">
+            <h3>To-Do List</h3>
+            <p>Build a command-line to-do list manager.</p>
+            <a href="/projects/todo_app/index.html" class="btn">Start Project</a>
+          </div>
+
+          <div class="card">
+            <h3>Calculator</h3>
+            <p>Create a simple calculator application.</p>
+            <a href="/projects/calculator/index.html" class="btn">Start Project</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="code-playground">
+        <h2>Try Python Now</h2>
+        <div class="code-area">
+          <textarea class="code-editor" id="code-editor"># Welcome to Python!
+print("Hello, World!")
+
+# Try changing the message
+</textarea>
+          <button class="btn" onclick="runCode()">Run Code</button>
+          <div class="output-area" id="output"></div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <div>
+        <h3>Learn Python</h3>
+        <p>Master Python programming through interactive lessons and projects.</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+          <li><a href="/faq.html">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="/blog.html">Blog</a></li>
+          <li><a href="/documentation.html">Documentation</a></li>
+          <li><a href="/community.html">Community</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Include Skulpt for Python execution -->
+  <script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt-stdlib.js"></script>
+  <script>
+    function outf(text) {
+      var output = document.getElementById("output");
+      output.innerHTML += text;
+    }
+    
+    function builtinRead(x) {
+      if (Sk.builtinFiles === undefined || Sk.builtinFiles["files"][x] === undefined)
+        throw "File not found: '" + x + "'";
+      return Sk.builtinFiles["files"][x];
+    }
+    
+    function runCode() {
+      var prog = document.getElementById("code-editor").value;
+      var output = document.getElementById("output");
+      output.innerHTML = '';
+      Sk.configure({output:outf, read:builtinRead}); 
+      try {
+        Sk.importMainWithBody("<stdin>", false, prog, true);
+      } catch(e) {
+        output.innerHTML = e.toString();
+      }
+    }
+  </script>
+</body>
+</html>

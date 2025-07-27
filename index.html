@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learn Python - Interactive Programming Course</title>
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Code&display=swap">
+  <script src="/assets/js/app.js" defer></script>
+</head>
+<body>
+  <div class="nav-wrapper">
+    <nav>
+      <a href="/" class="logo">Learn Python</a>
+      <div class="nav-links">
+        <a href="/beginner/getting-started.html">Beginner</a>
+        <a href="/intermediate/overview.html">Intermediate</a>
+        <a href="/advanced/overview.html">Advanced</a>
+        <a href="/projects/index.html">Projects</a>
+        <a href="/playground.html">Code Playground</a>
+      </div>
+    </nav>
+  </div>
+
+  <main class="container">
+    <section class="hero fade-in">
+      <h1 class="section-title">Master Python Programming</h1>
+      <p>Interactive lessons, hands-on projects, and real-world applications. Start your coding journey today!</p>
+    </section>
+
+    <section class="learning-paths section">
+      <h2 class="section-title">Choose Your Path</h2>
+      <div class="cards-grid">
+        <div class="card">
+          <h3>Beginner Track</h3>
+          <p>Perfect for those new to programming. Learn Python basics and fundamentals.</p>
+          <ul class="feature-list">
+            <li>Variables & Data Types</li>
+            <li>Control Flow</li>
+            <li>Functions & Modules</li>
+          </ul>
+          <a href="/beginner/getting-started.html" class="btn">Start Learning</a>
+        </div>
+
+        <div class="card">
+          <h3>Intermediate Track</h3>
+          <p>Deepen your Python knowledge with advanced concepts.</p>
+          <ul class="feature-list">
+            <li>Object-Oriented Programming</li>
+            <li>File Handling</li>
+            <li>Error Handling</li>
+          </ul>
+          <a href="/intermediate/overview.html" class="btn">Level Up</a>
+        </div>
+
+        <div class="card">
+          <h3>Advanced Track</h3>
+          <p>Master complex Python concepts and become an expert.</p>
+          <ul class="feature-list">
+            <li>Decorators & Generators</li>
+            <li>Concurrent Programming</li>
+            <li>Design Patterns</li>
+          </ul>
+          <a href="/advanced/overview.html" class="btn">Go Advanced</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="featured-projects section">
+      <h2 class="section-title">Featured Projects</h2>
+      <div class="cards-grid">
+        <div class="card">
+          <h3>Web Scraper</h3>
+          <p>Build a web scraper to collect and analyze data from websites.</p>
+          <a href="/projects/web-scraper.html" class="btn">View Project</a>
+        </div>
+
+        <div class="card">
+          <h3>Task Manager</h3>
+          <p>Create a command-line task manager with database storage.</p>
+          <a href="/projects/task-manager.html" class="btn">View Project</a>
+        </div>
+
+        <div class="card">
+          <h3>Flask Blog</h3>
+          <p>Develop a full-featured blog using Flask web framework.</p>
+          <a href="/projects/flask-blog.html" class="btn">View Project</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="playground-preview section">
+      <h2 class="section-title">Try Python Now</h2>
+      <div class="code-area">
+        <textarea class="code-editor" id="code-editor">
+# Try Python right here!
+name = input("What's your name? ")
+print(f"Hello, {name}! Welcome to Python!")</textarea>
+        <button class="btn" onclick="runCode()">Run Code</button>
+        <div class="output-area" id="output"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <div>
+        <h3>Learn Python</h3>
+        <p>Master Python programming through interactive lessons and projects.</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+          <li><a href="/faq.html">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="/blog.html">Blog</a></li>
+          <li><a href="/documentation.html">Documentation</a></li>
+          <li><a href="/community.html">Community</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Include Skulpt for Python execution -->
+  <script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt-stdlib.js"></script>
+  <script>
+    function outf(text) {
+      var output = document.getElementById("output");
+      output.innerHTML += text;
+    }
+    
+    function builtinRead(x) {
+      if (Sk.builtinFiles === undefined || Sk.builtinFiles["files"][x] === undefined)
+        throw "File not found: '" + x + "'";
+      return Sk.builtinFiles["files"][x];
+    }
+    
+    function runCode() {
+      var prog = document.getElementById("code-editor").value;
+      var output = document.getElementById("output");
+      output.innerHTML = '';
+      Sk.configure({output:outf, read:builtinRead}); 
+      try {
+        Sk.importMainWithBody("<stdin>", false, prog, true);
+      } catch(e) {
+        output.innerHTML = e.toString();
+      }
+    }
+  </script>
+</body>
+</html>

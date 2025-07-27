@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Python Asyncio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <script src="/assets/js/app.js"></script>
+</head>
+<body>
+  <nav>
+    <a href="/index.html">Home</a> |
+    <a href="/beginner/variables.html">Beginner</a> |
+    <a href="/intermediate/file_io.html">Intermediate</a> |
+    <a href="/advanced/decorators.html">Advanced</a> |
+    <a href="/webdev/flask_intro.html">Web Dev</a> |
+    <a href="/datascience/numpy_basics.html">Data Science</a> |
+    <a href="/projects/calculator/index.html">Projects</a> |
+    <a href="/exercises/beginner_ex_01.html">Exercises</a> |
+    <a href="/quizzes/beginner_quiz_01.html">Quizzes</a>
+  </nav>
+  <div class="container">
+    <h1>Python Asyncio</h1>
+    
+    <section class="introduction">
+      <h2>What is Asyncio?</h2>
+      <p>Asyncio is Python's built-in library for writing concurrent code using the async/await syntax. 
+         It's particularly useful for I/O-bound and high-level structured network code.</p>
+    </section>
+
+    <section class="basic-concepts">
+      <h2>Basic Concepts</h2>
+      <ul>
+        <li><strong>Coroutines</strong>: Functions that can be paused and resumed</li>
+        <li><strong>async/await</strong>: Keywords for defining and using coroutines</li>
+        <li><strong>Event Loop</strong>: The core of async execution</li>
+        <li><strong>Tasks</strong>: Units of concurrent execution</li>
+      </ul>
+    </section>
+
+    <section class="example">
+      <h2>Basic Asyncio Example</h2>
+      <pre><code>import asyncio
+
+async def hello_world():
+    print('Hello ...')
+    await asyncio.sleep(1)    # Non-blocking sleep
+    print('... World!')
+
+async def main():
+    await hello_world()       # Wait for coroutine to complete
+
+# Run the async program
+asyncio.run(main())</code></pre>
+      
+      <div class="practice-area">
+        <h3>Try it yourself:</h3>
+        <textarea id="codeInput" rows="8">
+import asyncio
+
+async def delayed_greeting(name, delay):
+    await asyncio.sleep(delay)
+    print(f"Hello, {name}!")
+
+asyncio.run(delayed_greeting("World", 1))</textarea>
+        <button onclick="runCode()">Run Code</button>
+        <pre id="output"></pre>
+      </div>
+    </section>
+
+    <section class="concurrent-tasks">
+      <h2>Running Concurrent Tasks</h2>
+      <pre><code>async def fetch_data():
+    print('Fetching data...')
+    await asyncio.sleep(2)
+    return {'data': 'Here is your data'}
+
+async def main():
+    # Run multiple coroutines concurrently
+    task1 = asyncio.create_task(fetch_data())
+    task2 = asyncio.create_task(fetch_data())
+    
+    # Wait for both tasks to complete
+    result1, result2 = await asyncio.gather(task1, task2)
+    print(result1, result2)</code></pre>
+    </section>
+
+    <section class="real-world">
+      <h2>Real-World Examples</h2>
+      <h3>Web Scraping</h3>
+      <pre><code>async def fetch_url(url):
+    async with aiohttp.ClientSession() as session:
+        async with session.get(url) as response:
+            return await response.text()
+
+async def main():
+    urls = [
+        'http://example.com',
+        'http://example.org',
+        'http://example.net'
+    ]
+    tasks = [fetch_url(url) for url in urls]
+    results = await asyncio.gather(*tasks)
+    print(results)</code></pre>
+    </section>
+
+    <section class="best-practices">
+      <h2>Best Practices</h2>
+      <ul>
+        <li>Don't use blocking calls in coroutines</li>
+        <li>Handle exceptions properly with try/except</li>
+        <li>Use asyncio.create_task() for concurrent execution</li>
+        <li>Consider using asyncio.gather() for multiple tasks</li>
+      </ul>
+    </section>
+
+    <section class="navigation">
+      <h2>Related Topics</h2>
+      <ul>
+        <li><a href="threading.html">Threading in Python</a></li>
+        <li><a href="performance.html">Performance Optimization</a></li>
+        <li><a href="/webdev/flask_intro.html">Async Web Development</a></li>
+      </ul>
+    </section>
+  </div>
+  
+  <!-- Include Skulpt library for Python execution -->
+  <script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt-stdlib.js"></script>
+  <script>
+    function outf(text) {
+      var output = document.getElementById("output");
+      output.innerHTML = output.innerHTML + text;
+    }
+    
+    function builtinRead(x) {
+      if (Sk.builtinFiles === undefined || Sk.builtinFiles["files"][x] === undefined)
+        throw "File not found: '" + x + "'";
+      return Sk.builtinFiles["files"][x];
+    }
+    
+    function runCode() {
+      var prog = document.getElementById("codeInput").value;
+      var output = document.getElementById("output");
+      output.innerHTML = '';
+      Sk.configure({output:outf, read:builtinRead}); 
+      try {
+        Sk.importMainWithBody("<stdin>", false, prog, true);
+      } catch(e) {
+        output.innerHTML = e.toString();
+      }
+    }
+  </script>
+  <footer>
+    &copy; 2025 Python Course Website. All rights reserved.
+  </footer>
+</body>
+</html>

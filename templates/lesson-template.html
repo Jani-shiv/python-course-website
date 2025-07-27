@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Python Variables and Data Types - Learn Python</title>
+  <title>{{TITLE}} - Learn Python</title>
   <link rel="stylesheet" href="/assets/css/styles.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Code&display=swap">
   <script src="/assets/js/app.js" defer></script>
@@ -13,7 +13,7 @@
     <nav>
       <a href="/" class="logo">Learn Python</a>
       <div class="nav-links">
-        <a href="/beginner/getting-started.html" class="active">Beginner</a>
+        <a href="/beginner/getting-started.html">Beginner</a>
         <a href="/intermediate/overview.html">Intermediate</a>
         <a href="/advanced/overview.html">Advanced</a>
         <a href="/projects/index.html">Projects</a>
@@ -25,69 +25,33 @@
   <main class="container">
     <article class="lesson-content">
       <header class="lesson-header">
-        <h1 class="section-title">Variables and Data Types</h1>
+        <h1 class="section-title">{{TITLE}}</h1>
         <div class="lesson-meta">
-          <span class="difficulty">Beginner</span>
-          <span class="estimated-time">20 minutes</span>
+          <span class="difficulty">{{DIFFICULTY}}</span>
+          <span class="estimated-time">{{TIME}} minutes</span>
         </div>
       </header>
 
       <section class="lesson-overview">
-        <h2>What are Variables?</h2>
-        <p>Variables are containers for storing data values. In Python, you don't need to declare a variable type explicitly - Python automatically determines the type based on the value assigned.</p>
+        <h2>Overview</h2>
+        <p>{{OVERVIEW}}</p>
+        
+        <div class="prerequisites">
+          <h3>Prerequisites</h3>
+          <ul>
+            {{PREREQUISITES}}
+          </ul>
+        </div>
       </section>
 
       <section class="content">
-        <h2>Basic Variable Usage</h2>
-        <div class="code-area">
-          <pre><code># Creating variables
-name = "Alice"    # String
-age = 25         # Integer
-height = 1.75    # Float
-is_student = True  # Boolean
-
-# Printing variables
-print(name)
-print(age)
-print(height)
-print(is_student)</code></pre>
-        </div>
-
-        <h2>Data Types</h2>
-        <div class="feature-list">
-          <ul>
-            <li><strong>Strings (str)</strong>: Text values - "Hello", 'Python'</li>
-            <li><strong>Integers (int)</strong>: Whole numbers - 42, -17, 1000</li>
-            <li><strong>Floating-point (float)</strong>: Decimal numbers - 3.14, -0.001</li>
-            <li><strong>Boolean (bool)</strong>: True or False values</li>
-          </ul>
-        </div>
-
-        <h2>Type Conversion</h2>
-        <div class="code-area">
-          <pre><code># Converting between types
-number_string = "42"
-number = int(number_string)  # Convert string to integer
-float_number = float(number)  # Convert to float
-back_to_string = str(number)  # Convert back to string
-
-print(type(number_string))  # <class 'str'>
-print(type(number))        # <class 'int'>
-print(type(float_number))  # <class 'float'></code></pre>
-        </div>
+        {{CONTENT}}
       </section>
 
-      <section class="practice">
-        <h2>Try It Yourself</h2>
+      <section class="code-practice">
+        <h2>Practice</h2>
         <div class="code-area">
-          <textarea class="code-editor" id="code-editor"># Create some variables and print their types
-name = "Your Name"
-age = 20
-height = 1.75
-
-print(f"Name: {name} (Type: {type(name)})")
-print(f"Age: {age} (Type: {type(age)})")
-print(f"Height: {height} (Type: {type(height)})")</textarea>
+          <textarea class="code-editor" id="code-editor">{{STARTER_CODE}}</textarea>
           <button class="btn" onclick="runCode()">Run Code</button>
           <div class="output-area" id="output"></div>
         </div>
@@ -95,16 +59,14 @@ print(f"Height: {height} (Type: {type(height)})")</textarea>
 
       <section class="exercises">
         <h2>Exercises</h2>
-        <ol>
-          <li>Create variables for your name, age, and favorite number.</li>
-          <li>Convert a string number to an integer and add 5 to it.</li>
-          <li>Create a boolean variable and print its opposite using not.</li>
-        </ol>
+        <div class="exercise-list">
+          {{EXERCISES}}
+        </div>
       </section>
 
       <nav class="lesson-navigation">
-        <a href="getting-started.html" class="btn">← Previous: Getting Started</a>
-        <a href="operators.html" class="btn">Next: Operators →</a>
+        <a href="{{PREV_LESSON}}" class="btn">← Previous Lesson</a>
+        <a href="{{NEXT_LESSON}}" class="btn">Next Lesson →</a>
       </nav>
     </article>
 
@@ -112,18 +74,16 @@ print(f"Height: {height} (Type: {type(height)})")</textarea>
       <div class="card">
         <h3>Quick Links</h3>
         <ul>
-          <li><a href="#basic-variable-usage">Basic Usage</a></li>
-          <li><a href="#data-types">Data Types</a></li>
-          <li><a href="#type-conversion">Type Conversion</a></li>
+          <li><a href="#overview">Overview</a></li>
+          <li><a href="#practice">Practice</a></li>
+          <li><a href="#exercises">Exercises</a></li>
         </ul>
       </div>
 
       <div class="card">
         <h3>Related Topics</h3>
         <ul>
-          <li><a href="operators.html">Operators</a></li>
-          <li><a href="input_output.html">Input and Output</a></li>
-          <li><a href="strings.html">String Operations</a></li>
+          {{RELATED_TOPICS}}
         </ul>
       </div>
     </aside>
