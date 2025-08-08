@@ -1,0 +1,39 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Todo App • Projects</title><link rel="stylesheet" href="../assets/css/styles.css"></head><body><header class="nav-wrapper"><nav class="nav"><a class="logo" href="../index.html">🐍 Python Course</a><div class="nav-links"><a href="../projects/index.html">Back to Projects</a></div></nav></header><main class="container"><h1>Todo App</h1><div class="code-area"><textarea id="todo-code" class="code-editor" spellcheck="false">tasks = []
+
+print('Todo App')
+print('1. View tasks')
+print('2. Add task')
+print('3. Remove task')
+print('4. Exit')
+
+while True:
+    choice = input('Enter choice: ')
+    if choice == '1':
+        if not tasks:
+            print('No tasks yet.')
+        else:
+            for i, task in enumerate(tasks, 1):
+                print(f'{i}. {task}')
+    elif choice == '2':
+        task = input('Enter new task: ')
+        tasks.append(task)
+        print('Task added.')
+    elif choice == '3':
+        if not tasks:
+            print('No tasks to remove.')
+        else:
+            try:
+                num = int(input('Enter task number to remove: '))
+                if 1 &lt;= num &lt;= len(tasks):
+                    removed = tasks.pop(num - 1)
+                    print(f'Removed: {removed}')
+                else:
+                    print('Invalid task number.')
+            except ValueError:
+                print('Please enter a valid number.')
+    elif choice == '4':
+        print('Goodbye!')
+        break
+    else:
+        print('Invalid choice.')
+</textarea><div class="actions"><button class="btn primary" onclick="runSkulpt('todo-code','todo-out')">Run ▶</button><button class="btn" onclick="resetOutput('todo-out')">Clear</button></div><pre id="todo-out" class="output"></pre></div></main><footer class="footer"><p>© <span id="year"></span> Python Course Website</p></footer><script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt.min.js"></script><script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt-stdlib.js"></script><script src="../assets/js/app.js"></script></body></html>

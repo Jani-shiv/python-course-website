@@ -1,97 +1,69 @@
 # 🐍 Python Course Website
 
-An interactive, beginner-friendly Python learning platform built using HTML, CSS, JavaScript, and [Skulpt](https://github.com/skulpt/skulpt) to execute Python code directly in the browser — no installation required.
+A clean, interactive Python learning site that runs Python code in the browser using Skulpt. Includes beginner → advanced paths and practice projects.
 
-## 🌟 Features
-
-- 🧠 Interactive Python editor with real-time output.
-- ✍️ Beginner concepts with animated explanations.
-- 💡 Code examples with built-in Python runner using Skulpt.
-- 💬 Clean UI with animations and responsive design.
-- 📂 Modular structure to easily add new topics (e.g., Variables, Comments, Loops).
-
----
+## ✨ Highlights
+- In‑browser Python runner (no installs)
+- Organized tracks: Beginner, Intermediate, Advanced
+- Practice projects: Calculator, Guess Number, Todo
+- Modern, responsive UI (Inter + Fira Code)
+- Single landing page linking to all content
 
 ## 🚀 Live Preview
+Add a live URL here when you deploy (GitHub Pages / Vercel / Netlify).
 
-👉 Coming soon! Deploy it using [GitHub Pages](https://pages.github.com/) or [Vercel](https://vercel.com/).
+[▶ Demo GIF Placeholder](assets/images/demo.gif)
 
----
-
-## 🗂️ Project Structure
-
+## 📁 Project Structure
 ```
 python-course-website/
-├── index.html
-├── about.html
-├── beginner/
-│   ├── comments.html
-│   ├── variables.html
-│   └── ...
-├── intermediate/
-│   └── ...
-├── advanced/
-│   └── ...
-├── projects/
-│   ├── calculator/
-│   │   ├── index.html
-│   │   └── main.py
-│   └── ...
-├── assets/
-│   ├── css/
-│   ├── js/
-│   ├── images/
-│   └── notes/
-└── README.md
+├─ index.html
+├─ assets/
+│  ├─ css/styles.css
+│  └─ js/app.js
+├─ beginner/
+│  ├─ index.html
+│  └─ variables.html
+├─ intermediate/
+│  ├─ index.html
+│  └─ file_io.html
+├─ advanced/
+│  ├─ index.html
+│  └─ decorators.html
+└─ projects/
+   ├─ index.html
+   ├─ calculator.html
+   ├─ guess-number.html
+   └─ todo.html
 ```
 
----
+## 🧭 Navigation
+- Landing: index.html
+- Lessons: beginner/, intermediate/, advanced/
+- Projects hub: projects/index.html
 
-## 📸 Screenshots
+## 🧪 Try Python (Skulpt)
+- Each lesson/project has a textarea runner.
+- Run button executes code in the browser.
 
-### 🧮 Calculator App
+## 🛠 Tech
+- HTML, CSS, vanilla JS
+- Skulpt (Python in browser)
 
-![Calculator App](https://media.giphy.com/media/3o7aD2saalBwwftBIY/giphy.gif)
+## 📦 Development
+Open with any static server (or use VS Code Live Server).
 
-### 📝 To-Do List App
+## 🔗 Buttons & Badges
+- [Get Started](beginner/index.html)
+- [Projects](projects/index.html)
+- ![Static Badge Placeholder](https://img.shields.io/badge/status-active-brightgreen)
 
-![To-Do List App](https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif)
+## 🖼 Assets
+- Put screenshots/GIFs in `assets/images/` and update the README links.
 
-### 🎯 Guess the Number Game
+## 🤝 Contributing
+- Fork → feature branch → PR
+- Keep pages accessible and responsive.
 
-![Guess the Number Game](https://media.giphy.com/media/3o6ZtaO9BZHcOjmErm/giphy.gif)
-
-*Note: These GIFs are for illustrative purposes. Replace them with actual GIFs from your project demos.*
-
----
-
-## 🛠️ Tech Stack
-
-- ✅ **HTML5**
-- ✅ **CSS3 (animations & responsive design)**
-- ✅ **JavaScript (DOM + Skulpt integration)**
-- ✅ **Skulpt** for running Python in-browser
-
----
-
-## 📌 Current Pages
-
-| Page               | Description                                              |
-|--------------------|----------------------------------------------------------|
-| `comments.html`    | Teaches single-line and multi-line comments with code editor. |
-| `variables.html`   | Explains variables and dynamic typing with interactive output. |
-| `loops.html`       | Demonstrates for and while loops with live examples.     |
-| `functions.html`   | Covers function definitions and calls with real-time execution. |
-
----
-
-## 🧑‍💻 Author
-
-Made with ❤️ by [Shiv Jani](https://github.com/Jani-shiv)  
-📫 [Instagram](https://www.instagram.com/jani._.712) | [LinkedIn](https://www.linkedin.com/in/shiv-jani/)
-
----
-
-## 📜 License
-
-This project is open-source and available under the [MIT License](LICENSE).
+## 📄 License
+MIT

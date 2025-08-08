@@ -1,0 +1,20 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Guess Number • Projects</title><link rel="stylesheet" href="../assets/css/styles.css"></head><body><header class="nav-wrapper"><nav class="nav"><a class="logo" href="../index.html">🐍 Python Course</a><div class="nav-links"><a href="../projects/index.html">Back to Projects</a></div></nav></header><main class="container"><h1>Guess Number</h1><div class="code-area"><textarea id="guess-code" class="code-editor" spellcheck="false">import random
+
+print('Welcome to Guess the Number!')
+number = random.randint(1, 100)
+attempts = 0
+while True:
+    try:
+        guess = int(input('Guess a number between 1 and 100: '))
+    except ValueError:
+        print('Please enter a valid integer.')
+        continue
+    attempts += 1
+    if guess &lt; number:
+        print('Too low!')
+    elif guess &gt; number:
+        print('Too high!')
+    else:
+        print(f'Congratulations! You guessed the number in {attempts} attempts.')
+        break
+</textarea><div class="actions"><button class="btn primary" onclick="runSkulpt('guess-code','guess-out')">Run ▶</button><button class="btn" onclick="resetOutput('guess-out')">Clear</button></div><pre id="guess-out" class="output"></pre></div><p class="muted">Note: random in Skulpt is pseudo-random per run.</p></main><footer class="footer"><p>© <span id="year"></span> Python Course Website</p></footer><script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt.min.js"></script><script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt-stdlib.js"></script><script src="../assets/js/app.js"></script></body></html>

@@ -1,0 +1,11 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Decorators • Advanced</title><link rel="stylesheet" href="../assets/css/styles.css"></head><body><header class="nav-wrapper"><nav class="nav"><a class="logo" href="../index.html">🐍 Python Course</a><div class="nav-links"><a href="./index.html">Advanced</a><a href="../projects/index.html">Projects</a></div></nav></header><main class="container"><h1>Decorators</h1><p>Functions that wrap other functions.</p><div class="code-area"><textarea id="dec-code" class="code-editor">def log(fn):
+    def wrapper(*args, **kwargs):
+        print('calling', fn.__name__)
+        return fn(*args, **kwargs)
+    return wrapper
+
+@log
+def greet(name):
+    print('Hello', name)
+
+greet('Python')</textarea><div class="actions"><button class="btn primary" onclick="runSkulpt('dec-code','dec-out')">Run ▶</button><button class="btn" onclick="resetOutput('dec-out')">Clear</button></div><pre id="dec-out" class="output"></pre></div></main><footer class="footer"><p>© <span id="year"></span> Python Course Website</p></footer><script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt.min.js"></script><script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt-stdlib.js"></script><script src="../assets/js/app.js"></script></body></html>
