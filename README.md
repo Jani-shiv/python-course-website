@@ -1,4 +1,3 @@
-# 🐍 Python Course Website
 
 A clean, interactive Python learning site that runs Python code in the browser using Skulpt. Includes beginner → advanced paths and practice projects.
 
