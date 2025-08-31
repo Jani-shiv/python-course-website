@@ -1,0 +1,112 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Batter Calculator • Projects</title><link rel="stylesheet" href="../assets/css/styles.css"></head><body><header class="nav-wrapper"><nav class="nav"><a class="logo" href="../index.html">🐍 Python Course</a><div class="nav-links"><a href="../projects/index.html">Back to Projects</a></div></nav></header><main class="container"><h1>Batter Calculator</h1><p>Calculate batter ingredients for different serving sizes and recipes.</p><div class="code-area"><textarea id="batter-code" class="code-editor" spellcheck="false"># Batter Calculator - Scale recipes for different serving sizes
+
+def pancake_batter(servings):
+    """Calculate pancake batter ingredients for given servings"""
+    base_servings = 4  # Recipe serves 4 people
+    ratio = servings / base_servings
+    
+    ingredients = {
+        'flour': 1.5 * ratio,      # cups
+        'milk': 1.25 * ratio,      # cups
+        'eggs': 2 * ratio,         # eggs
+        'sugar': 2 * ratio,        # tablespoons
+        'baking_powder': 2 * ratio, # teaspoons
+        'salt': 0.5 * ratio,       # teaspoons
+        'butter': 3 * ratio        # tablespoons (melted)
+    }
+    
+    return ingredients
+
+def waffle_batter(servings):
+    """Calculate waffle batter ingredients for given servings"""
+    base_servings = 4  # Recipe serves 4 people
+    ratio = servings / base_servings
+    
+    ingredients = {
+        'flour': 2 * ratio,        # cups
+        'milk': 1.75 * ratio,      # cups
+        'eggs': 2 * ratio,         # eggs
+        'sugar': 3 * ratio,        # tablespoons
+        'baking_powder': 2 * ratio, # teaspoons
+        'salt': 0.5 * ratio,       # teaspoons
+        'oil': 0.5 * ratio         # cups
+    }
+    
+    return ingredients
+
+def cake_batter(servings):
+    """Calculate cake batter ingredients for given servings"""
+    base_servings = 8  # Recipe serves 8 people
+    ratio = servings / base_servings
+    
+    ingredients = {
+        'flour': 2.25 * ratio,     # cups
+        'sugar': 1.5 * ratio,      # cups
+        'eggs': 3 * ratio,         # eggs
+        'butter': 0.5 * ratio,     # cups (softened)
+        'baking_powder': 2.5 * ratio, # teaspoons
+        'vanilla': 2 * ratio,      # teaspoons
+        'milk': 1 * ratio          # cups
+    }
+    
+    return ingredients
+
+def display_recipe(recipe_name, ingredients):
+    """Display recipe ingredients in a formatted way"""
+    print(f"\n=== {recipe_name} Recipe ===")
+    for ingredient, amount in ingredients.items():
+        # Format ingredient names nicely
+        name = ingredient.replace('_', ' ').title()
+        
+        # Round amounts appropriately
+        if amount < 1:
+            amount_str = f"{amount:.2f}".rstrip('0').rstrip('.')
+        else:
+            amount_str = f"{amount:.1f}".rstrip('0').rstrip('.')
+        
+        # Determine units
+        if 'eggs' in ingredient:
+            unit = 'whole' if float(amount_str) != 1 else 'whole'
+        elif ingredient in ['flour', 'milk', 'sugar', 'oil']:
+            unit = 'cups' if float(amount_str) != 1 else 'cup'
+        elif ingredient in ['butter'] and 'cups' not in ingredient:
+            unit = 'tablespoons' if float(amount_str) != 1 else 'tablespoon'
+        elif 'powder' in ingredient or 'salt' in ingredient or 'vanilla' in ingredient:
+            unit = 'teaspoons' if float(amount_str) != 1 else 'teaspoon'
+        else:
+            unit = 'tablespoons' if float(amount_str) != 1 else 'tablespoon'
+            
+        print(f"• {name}: {amount_str} {unit}")
+
+# Main program
+print("🥞 Welcome to the Batter Calculator! 🧁")
+print("\nChoose your recipe:")
+print("1. Pancake Batter")
+print("2. Waffle Batter") 
+print("3. Cake Batter")
+
+try:
+    choice = input("\nEnter your choice (1/2/3): ")
+    servings = int(input("How many servings do you need? "))
+    
+    if servings <= 0:
+        print("Please enter a positive number of servings!")
+    elif choice == '1':
+        ingredients = pancake_batter(servings)
+        display_recipe(f"Pancake Batter for {servings} people", ingredients)
+    elif choice == '2':
+        ingredients = waffle_batter(servings)
+        display_recipe(f"Waffle Batter for {servings} people", ingredients)
+    elif choice == '3':
+        ingredients = cake_batter(servings)
+        display_recipe(f"Cake Batter for {servings} people", ingredients)
+    else:
+        print("Invalid choice! Please select 1, 2, or 3.")
+        
+except ValueError:
+    print("Please enter a valid number for servings!")
+except Exception as e:
+    print(f"An error occurred: {e}")
+
+print("\n🍽️ Happy baking! 🍽️")
+</textarea><div class="actions"><button class="btn primary" onclick="runSkulpt('batter-code','batter-out')">Run ▶</button><button class="btn" onclick="resetOutput('batter-out')">Clear</button></div><pre id="batter-out" class="output"></pre></div></main><footer class="footer"><p>© <span id="year"></span> Python Course Website</p></footer><script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt.min.js"></script><script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt-stdlib.js"></script><script src="../assets/js/app.js"></script></body></html>
